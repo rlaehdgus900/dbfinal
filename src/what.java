@@ -19,21 +19,6 @@ import java.io.*;
 
 public class what {
 
-	public static class market{
-		int market_id = 0;
-		String market_name = "";
-		String market_addr = "";
-		String market_long = "";
-		String market_lati = "";
-		String market_phon = "";
-		
-		public market() {
-			
-		}
-	}
-	
-	
-	
 	/************************************************************************************************************************
 	 * 
 	 * The function that parses the necessary information to put into the table The
@@ -231,7 +216,7 @@ public class what {
 		{
 			String market_query = "insert into Market values(" + "'" + (j+1) + "',"; 
 			market_query = market_query + market_array[j].substring(4);
-			System.out.println(market_query);
+			//System.out.println(market_query);
 			market_query = market_query + ")" + ";";
 			//System.out.println(market_query);
 			try {
