@@ -198,13 +198,7 @@ public class what {
 			e.printStackTrace();
 		}
 
-		try {
-			rs1.close();
-			st1.close();
-			conn1.close();
-		} catch (SQLException sqlEX) {
-			System.out.println(sqlEX);
-		}
+		
 		/***************************************************************************************************************************************
 		 * connect to Postgresql- done*
 		 ***************************************************************************************************************************************/
@@ -220,11 +214,13 @@ public class what {
 		BufferedReader br = new BufferedReader(fr);
 		
 		
+		
+		
 		for (int i =0 ; i<25;i++)
 		{
 			line = br.readLine();
 			//System.out.println(line);
-			if(line ==null) continue;
+			if(line == null) continue;
 			market_array[i%5] = market_array[i%5] + "'"; 
 			market_array[i%5] = market_array[i%5]+line;
 			market_array[i%5] = market_array[i%5] + "'";
@@ -233,7 +229,25 @@ public class what {
 		
 		for(int j = 0 ; j<5;j++)
 		{
-			System.out.println(market_array[j]);
+			String market_query = "insert into Market values(" + "'" + (j+1) + "',"; 
+			market_query = market_query + market_array[j].substring(4);
+			System.out.println(market_query);
+			market_query = market_query + ")" + ";";
+			//System.out.println(market_query);
+			try {
+				st1.executeUpdate(market_query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		try {
+			rs1.close();
+			st1.close();
+			conn1.close();
+		} catch (SQLException sqlEX) {
+			System.out.println(sqlEX);
 		}
 				
 	}
