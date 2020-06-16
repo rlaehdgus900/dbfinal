@@ -149,10 +149,10 @@ public class what {
 	 *************************************************************************************************************************/
 	public static void main(String[] args) throws IOException {
 		
-        String[] SIGUN_CDS = new String[]{"41820", "41000", "41280", "41290", "41210", "41610", "41310", "41410", "41570", "41360", "41250", "41190"};
+        String[] SIGUN_CDS = new String[]{"41820", "41280", "41290", "41210", "41610", "41310", "41410", "41570", "41360", "41250", "41190"};
 		ApiExplorer ae = new ApiExplorer();
 
-        for(int i = 0; i<12; i++){
+        for(int i = 0; i<SIGUN_CDS.length; i++){
             ae.apiexplorer(SIGUN_CDS[i]);
 		 }     
 		 
